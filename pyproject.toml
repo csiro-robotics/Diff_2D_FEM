@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "diff-2d-fem"
+version = "0.6.0"
+description = "Differentiable, GPU-batched 2D simulator for soft robots: soft and rigid bodies, IPC contact with friction, pneumatic / tendon / active-material actuation, implicit PNCG solver with an adjoint, on NVIDIA Warp."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Shi Ge" }]
+keywords = ["FEM", "soft-robotics", "soft-body", "affine-body-dynamics", "IPC", "contact",
+            "nvidia-warp", "differentiable-simulation", "grasping", "locomotion", "neo-hookean"]
+dependencies = ["numpy>=1.21", "warp-lang>=1.0", "scipy>=1.7"]
+
+[project.optional-dependencies]
+examples = ["matplotlib", "pillow"]
+test = ["pytest"]
+
+# Flat layout: the repository root IS the package `Diff_2D_FEM`.
+[tool.setuptools]
+packages = ["Diff_2D_FEM", "Diff_2D_FEM.core", "Diff_2D_FEM.implicit"]
+
+[tool.setuptools.package-dir]
+"Diff_2D_FEM" = "."
